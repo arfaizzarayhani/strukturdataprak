@@ -1,7 +1,5 @@
 package strukturdataprak;
 
-import java.util.Scanner;
-
 class Pembalik {
     private String input;
 
@@ -17,7 +15,7 @@ class Pembalik {
         }
         StringBuilder output = new StringBuilder();
         while (!stack.isEmpty()) {
-            output.append(stack.pop());
+            output.append(stack.pop()); // Benar, hasilnya huruf
         }
         return output.toString();
     }
@@ -25,14 +23,13 @@ class Pembalik {
 
 public class AppPembalik {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        while (true) {
-            System.out.print("Masukkan kata: ");
-            String kata = scanner.nextLine();
-            if (kata.isEmpty()) break; // keluar jika input kosong
-            Pembalik pembalik = new Pembalik(kata);
-            String hasil = pembalik.balikKata();
-            System.out.println("kebalikan: " + hasil);
-        }
+        String kata = "kasur"; // input langsung di program
+        System.out.println(">> katanya...");
+        System.out.println("    " + kata);
+        Pembalik pembalik = new Pembalik(kata);
+        String hasil = pembalik.balikKata();
+        System.out.println(">> dibalik jadi...");
+        System.out.println("    " + hasil);
     }
 }
+
