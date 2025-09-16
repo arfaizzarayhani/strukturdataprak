@@ -1,9 +1,9 @@
 package strukturdataprak;
 
 class Stack {
-    private int maxSize;
     private char[] stackArray;
     private int top;
+    private int maxSize;
 
     public Stack(int size) {
         maxSize = size;
@@ -12,26 +12,18 @@ class Stack {
     }
 
     public void push(char c) {
-        if (isFull()) {
-            System.out.println("Stack penuh! Tidak bisa menambah elemen.");
-            return;
+        if (top < maxSize - 1) {
+            stackArray[++top] = c;
         }
-        stackArray[++top] = c;
     }
 
+  
     public char pop() {
-        if (isEmpty()) {
-            System.out.println("Stack kosong! Tidak ada elemen untuk di-pop.");
-            return '\0'; // karakter null sebagai tanda kosong
-        }
         return stackArray[top--];
     }
 
+   
     public boolean isEmpty() {
-        return top == -1;
-    }
-
-    public boolean isFull() {
-        return top == maxSize - 1;
+        return (top == -1);
     }
 }
