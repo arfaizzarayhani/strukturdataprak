@@ -1,16 +1,16 @@
 package strukturdataprak;
-public class Pembalik {
+public class pembalik {
     private String input;
 
    
-    public Pembalik(String input) {
+    public pembalik(String input) {
         this.input = input;
     }
 
     
     public String balik() {
         int panjang = input.length();
-        Stack stack = new Stack(panjang);
+        stack stack = new stack(panjang);
 
         
         for (int i = 0; i < panjang; i++) {

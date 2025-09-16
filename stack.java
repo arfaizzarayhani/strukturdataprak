@@ -1,11 +1,11 @@
 package strukturdataprak;
 
-class Stack {
+class stack {
     private char[] stackArray;
     private int top;
     private int maxSize;
 
-    public Stack(int size) {
+    public stack(int size) {
         maxSize = size;
         stackArray = new char[maxSize];
         top = -1;

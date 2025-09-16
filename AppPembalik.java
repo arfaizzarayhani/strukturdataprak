@@ -10,14 +10,13 @@ public class AppPembalik {
         System.out.println(">> katanya...");
         System.out.println(kataHardcode);
 
-        Pembalik p1 = new Pembalik(kataHardcode);
+        pembalik p1 = new pembalik(kataHardcode);
         String hasil1 = p1.balik();
 
         System.out.println(">> dibalik jadi...");
         System.out.println(hasil1);
         System.out.println(); 
         
-        //output b
         Scanner sc = new Scanner(System.in);
         String kata;
 
@@ -28,7 +27,7 @@ public class AppPembalik {
           
             if (kata.equals("")) break;
 
-            Pembalik p = new Pembalik(kata);
+            pembalik p = new pembalik(kata);
             String hasil = p.balik();
 
             System.out.println("Kebalikan: " + hasil);
