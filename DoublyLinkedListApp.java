@@ -1,6 +1,6 @@
 package strukturdataprak;
 
-public class Link {
+class Link {
     public int Data;
     public Link next;
     public Link previous;
@@ -72,7 +72,6 @@ class DoublyLinkedList {
                 return false; 
             } 
         } 
-    }
         Link newLink = new Link(Data); 
         if (current == last) {
             newLink.next = null; 
@@ -108,21 +107,34 @@ class DoublyLinkedList {
     public void displayForward(){
         System.out.print("List " + "(first --> last): ");
         Link current = first;
-        hile (current != null) { 
+        while (current != null) { 
             current.displayLink(); 
             current = current.next; 
         } 
         System.out.println(""); 
     } 
-    public void displayBackward() { 
-         System.out.print("List " + "(last-->first): "); 
-         Link current = last; 
-         while (current != null) { 
+  public void displayBackward() { 
+    System.out.print("List " + "(last-->first): "); 
+        Link current = last; 
+        while (current != null) {
             current.displayLink(); 
             current = current.previous; 
-         } 
-         System.out.println(""); 
-     } 
+        } 
+        System.out.println(""); 
+    } 
+} 
 public class DoublyLinkedListApp {
-    
+    public static void main(String[] args) {
+        DoublyLinkedList theList = new DoublyLinkedList(); 
+        theList.insertFirst(22); 
+        theList.insertFirst(44); 
+        theList.insertFirst(66); 
+        theList.displayForward(); 
+        theList.insertLast(11); 
+        theList.insertLast(33); 
+        theList.insertLast(55); 
+        theList.displayForward(); 
+        theList.displayBackward(); 
+        theList.deleteFirst(); 
+    }
 }
