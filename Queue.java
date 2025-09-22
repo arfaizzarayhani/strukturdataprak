@@ -14,8 +14,6 @@ class Queue {
         rear = -1;
         nItems = 0;
     }
-
-    
     public void enqueue(String item) {
         if (isFull()) {
             System.out.println("Maaf " + item + ", antrian masih penuh");
@@ -25,9 +23,7 @@ class Queue {
             nItems++;
             System.out.println(item + " masuk antrian");
         }
-    }
-
-    
+    } 
     public String dequeue() {
         if (isEmpty()) {
             return null;
@@ -39,18 +35,12 @@ class Queue {
             return temp;
         }
     }
-
-    
     public boolean isEmpty() {
         return (nItems == 0);
     }
-
-    
     public boolean isFull() {
         return (nItems == maxSize);
     }
-
-    
     public void displayQueue() {
         for (int i = 0; i < maxSize; i++) {
             System.out.print(queueArray[i] + ",");
