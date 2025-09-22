@@ -79,6 +79,25 @@ class LinkedList{
             current.next = newLink; // Hubungkan node terakhir ke node baru
         }
     }
+    public Link deleteLast() {
+        if (isEmpty()) {
+            return null; // List kosong
+        }
+        Link current = first;
+        Link previous = null;
+        // Jika hanya satu node
+        if (current.next == null) {
+            first = null;
+            return current;
+        }
+        // Cari node terakhir dan node sebelumnya
+        while (current.next != null) {
+            previous = current;
+            current = current.next;
+        }
+        previous.next = null; // Putuskan node terakhir
+        return current; // Kembalikan node yang dihapus
+    }
 }
 public class LinkedListApp {
     public static void main(String[] args) {
