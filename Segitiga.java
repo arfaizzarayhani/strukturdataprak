@@ -9,7 +9,6 @@ public class Segitiga {
             return n + triangleRecur(n - 1);
         }
     }
-
     // method untuk mencetak piramida angka
     public void printPiramida(int n) {
         for (int i = 1; i <= n; i++) {
@@ -19,13 +18,10 @@ public class Segitiga {
             System.out.println(); // pindah baris
         }
     }
-
-    // method main
     public static void main(String[] args) {
         Segitiga obj = new Segitiga();
         int n = 5;
         int hasil = obj.triangleRecur(n);
-
         System.out.println("Bilangan segitiga dari " + n + " adalah: " + hasil);
         System.out.println("Piramida angka dengan n = " + n + ":");
         obj.printPiramida(n);
