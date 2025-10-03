@@ -1,22 +1,22 @@
 package strukturdataprak;
 
 public class ShellSortArray {
-    private int[] array;
+    private int[] arr;
     private int nElemen;
 
     public ShellSortArray(int max) {
-        array = new int[max];
+        arr = new int[max];
         nElemen = 0;
     }
 
     public void insert(int value) {
-        array[nElemen] = value;
+        arr[nElemen] = value;
         nElemen++;
     }
 
     public void display() {
         for (int i = 0; i < nElemen; i++) {
-            System.out.print(array[i] + " ");
+            System.out.print(arr[i] + " ");
         }
         System.out.println();
     }
@@ -27,13 +27,13 @@ public class ShellSortArray {
         int h = nElemen / 2;
         while (h > 0) {
             for (out = h; out < nElemen; out++) {
-                temp = array[out];
+                temp = arr[out];
                 in = out;
-                while (in > h - 1 && array[in - h] >= temp) {
-                    array[in] = array[in - h];
+                while (in > h - 1 && arr[in - h] >= temp) {
+                    array[in] = arr[in - h];
                     in -= h;
                 }
-                array[in] = temp;
+                arr[in] = temp;
                 display();
             }
             h /= 2;
