@@ -13,7 +13,6 @@ public class ShellSortArray {
         arr[nElemen] = value;
         nElemen++;
     }
-
     public void display() {
         for (int i = 0; i < nElemen; i++) {
             System.out.print(arr[i] + " ");
