@@ -1,31 +1,24 @@
 package strukturdataprak;
 
-class Mahasiswa {
+public class Mahasiswa {
+    String nim;
+    String nama;
 
-    private long nim;
-    public String nama;
-    private String asal;
-
-    public Mahasiswa(long nim, String nama, String asal) {
+    public Mahasiswa(String nim, String nama) {
         this.nim = nim;
         this.nama = nama;
-        this.asal = asal;
-    }
-    public long getNim() {
-        return nim;
-    }
-    
-    public String getNama(){
-        return nama;
-    }
-    
-    public String getAsal(){
-        return asal;
     }
 
-    public void displayMhs() {
-        System.out.print("\tNIM: " + nim);
-        System.out.print(", Nama: " + nama);
-        System.out.println(", Asal: " + asal);
+    public String getNim() {
+        return nim;
+    }
+
+    public String getNama() {
+        return nama;
+    }
+
+    @Override
+    public String toString() {
+        return nim + " - " + nama;
     }
 }

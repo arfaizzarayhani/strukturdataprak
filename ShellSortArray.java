@@ -8,7 +8,6 @@ public class ShellSortArray {
         arr = new int[max];
         nElemen = 0;
     }
-
     public void insert(int value) {
         arr[nElemen] = value;
         nElemen++;
@@ -19,26 +18,35 @@ public class ShellSortArray {
         }
         System.out.println();
     }
-
-    public void ShellSort() {
-        int in, out;
-        int temp;
-        int h = nElemen / 2;
-        while (h > 0) {
-            for (out = h; out < nElemen; out++) {
-                temp = arr[out];
-                in = out;
-                while (in > h - 1 && arr[in - h] >= temp) {
-                    array[in] = arr[in - h];
-                    in -= h;
-                }
-                arr[in] = temp;
-                display();
-            }
-            h /= 2;
-        }
+public void ShellSort() {
+    int in, out;
+    int temp;
+    // Menentukan nilai awal gap (h) dengan rumus Knuth: h = 3*h + 1
+    // Urutan h: 1, 4, 13, 40, ... sampai mendekati nElemen/3
+    int h = 1;
+    while (h <= nElemen / 3) {
+        h = 3 * h + 1;   // cari gap terbesar sesuai Knuth
     }
-
+    // Proses sorting dengan interval h
+    while (h > 0) {
+        // Lakukan Insertion Sort dengan jarak h
+        for (out = h; out < nElemen; out++) {
+            temp = arr[out];
+            in = out;
+            // Geser elemen yang lebih besar sejauh h
+            while (in > h - 1 && arr[in - h] >= temp) {
+                arr[in] = arr[in - h];
+                in -= h;
+            }
+            // Tempatkan nilai pada posisi yang sesuai
+            arr[in] = temp;
+            // Menampilkan array setiap kali elemen dipindahkan
+            display();
+        }
+        // Kurangi gap dengan rumus Knuth: h = (h - 1) / 3
+        h = (h - 1) / 3;
+    }
+}
     public static void main(String[] args) {
         ShellSortArray arr = new ShellSortArray(8);
         arr.insert(77);
@@ -55,7 +63,7 @@ public class ShellSortArray {
 
         System.out.println("\nProses pengurutan:");
         arr.ShellSort();
-
+        
         System.out.println("\nArray setelah diurutkan:");
         arr.display();
     }

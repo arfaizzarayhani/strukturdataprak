@@ -5,7 +5,6 @@ public class MenaraHanoi {
     public MenaraHanoi(int n) {
         this.jumlahCakram = n;
     }
-
     // Method rekursif untuk menyelesaikan Menara Hanoi
     public void doMenara(int n, char asal, char tujuan, char bantu) {
         if (n == 1) {
@@ -16,13 +15,11 @@ public class MenaraHanoi {
         System.out.println("Pindahkan cakram " + n + " dari " + asal + " ke " + tujuan);
         doMenara(n - 1, bantu, tujuan, asal);
     }
-
     // Method display untuk menampilkan hasil
     public void display() {
         System.out.println("Menara Hanoi dengan " + jumlahCakram + " cakram:");
         doMenara(jumlahCakram, 'A', 'C', 'B');
     }
-
     // Main method untuk uji coba
     public static void main(String[] args) {
         MenaraHanoi hanoi = new MenaraHanoi(3);
