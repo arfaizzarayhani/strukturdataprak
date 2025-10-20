@@ -20,6 +20,7 @@ class BubbleSort implements SortStrategy {
             }
         }
     }
+
     @Override
     public String getName() {
         return "Bubble Sort";
@@ -41,6 +42,7 @@ class QuickSort implements SortStrategy {
         }
     }
 
+    // Membuat partisi untuk Quick Sort
     private int partition(List<Integer> data, int low, int high) {
         int pivot = data.get(high);
         int i = low - 1;
@@ -74,11 +76,12 @@ public class Sorter {
         System.out.println("----------------------------------------");
         System.out.println("Menggunakan Algoritma: " + strategy.getName());
         System.out.println("Data Awal: " + data);
-        
+
         strategy.sort(data);
 
         long endTime = System.nanoTime();
         long duration = (endTime - startTime) / 1_000_000; // ms
+
         System.out.println("Data Terurut: " + data);
         System.out.println("Waktu Eksekusi: " + duration + " ms");
         System.out.println("----------------------------------------");
@@ -89,7 +92,7 @@ public class Sorter {
     }
 
     public static void main(String[] args) {
-        List<Integer> initialData = new ArrayList<>(Arrays.asList(50, 10, 90, 30, 70, 40));
+        List<Integer> initialData = Arrays.asList(50, 10, 90, 30, 70, 40);
 
         // 1. Menggunakan Bubble Sort
         Sorter sorter = new Sorter(new BubbleSort());
