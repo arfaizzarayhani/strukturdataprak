@@ -7,7 +7,6 @@ public class Link {
     public Link(int iData) {
         this.iData = iData;
     }
-
     public int getKey() {
         return iData;
     }
