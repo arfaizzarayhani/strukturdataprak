@@ -1,5 +1,5 @@
 package strukturdataprak;
-public class SortedLinkedList {
+public class SortedLinkList {
     private Link first;
 
     public SortedLinkList() {
