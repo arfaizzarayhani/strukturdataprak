@@ -3,7 +3,7 @@ public class HashTable2 {
     private SortedLinkList[] hashArray;
     private int size;
 
-    public HashTable(int size) {
+    public HashTable2(int size) {
         this.size = size;
         hashArray = new SortedLinkList[size];
         for (int i = 0; i < size; i++) {
