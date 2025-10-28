@@ -14,7 +14,7 @@ public class HashTableQuadraticApp {
         table.displayTable();
 
         // Menambahkan 5 item baru
-        int[] dataBaru = {111, 222, 333, 444, 555};
+        int[] dataBaru = {111, 222, 333, 16, 89};
         for (int d : dataBaru) {
             table.insert(d);
         }
@@ -22,18 +22,5 @@ public class HashTableQuadraticApp {
         System.out.println("=== Setelah ===");
         table.displayTable();
 
-        // Contoh pencarian
-        int keyCari = 777;
-        Data hasil = table.find(keyCari);
-        if (hasil != null)
-            System.out.println("Data " + keyCari + " ditemukan di tabel.");
-        else
-            System.out.println("Data " + keyCari + " tidak ditemukan.");
-
-        // Contoh penghapusan
-        int keyHapus = 658;
-        table.delete(keyHapus);
-        System.out.println("\nSetelah menghapus " + keyHapus + ":");
-        table.displayTable();
     }
 }

@@ -29,41 +29,54 @@ public class HashTableQuadratic {
             else
                 System.out.println("Index " + i + " : --");
         }
-        System.out.println();
     }
 
+    // fungsi hash dasar
     public int hashFunc(int key) {
-        return key % size;
+        int h = key % size;
+        if (h < 0) h += size; // pastikan selalu positif
+        return h;
     }
 
     public void insert(int key) {
         Data item = new Data(key);
-        int hashVal = hashFunc(key);
+        int baseHash = hashFunc(key);
+        int hashVal = baseHash;
         int i = 1;
 
-        // quadratic probing: f(i) = i²
+        // quadratic probing
         while (hashArray[hashVal] != null) {
-            hashVal = (hashFunc(key) + i * i) % size;
+            hashVal = (baseHash + i * i) % size;
+            if (hashVal < 0) hashVal = (hashVal + size) % size; // anti-negatif
             i++;
+            if (i > size) {
+                System.out.println("Tabel penuh, tidak dapat menyimpan: " + key);
+                return;
+            }
         }
         hashArray[hashVal] = item;
     }
 
     public Data find(int key) {
-        int hashVal = hashFunc(key);
+        int baseHash = hashFunc(key);
+        int hashVal = baseHash;
         int i = 1;
 
         while (hashArray[hashVal] != null) {
             if (hashArray[hashVal].getKey() == key)
                 return hashArray[hashVal];
-            hashVal = (hashFunc(key) + i * i) % size;
+
+            hashVal = (baseHash + i * i) % size;
+            if (hashVal < 0) hashVal = (hashVal + size) % size;
             i++;
+            if (i > size) break;
         }
         return null;
     }
 
     public Data delete(int key) {
-        int hashVal = hashFunc(key);
+        int baseHash = hashFunc(key);
+        int hashVal = baseHash;
         int i = 1;
 
         while (hashArray[hashVal] != null) {
@@ -72,8 +85,11 @@ public class HashTableQuadratic {
                 hashArray[hashVal] = null;
                 return temp;
             }
-            hashVal = (hashFunc(key) + i * i) % size;
+
+            hashVal = (baseHash + i * i) % size;
+            if (hashVal < 0) hashVal = (hashVal + size) % size;
             i++;
+            if (i > size) break;
         }
         return null;
     }
