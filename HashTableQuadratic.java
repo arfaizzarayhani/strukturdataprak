@@ -43,7 +43,7 @@ public class HashTableQuadratic {
         int baseHash = hashFunc(key);
         int hashVal = baseHash;
         int i = 1;
-
+        
         // quadratic probing
         while (hashArray[hashVal] != null) {
             hashVal = (baseHash + i * i) % size;
