@@ -25,25 +25,39 @@ public class Heap {
     public void trickleUp(int index) {
         int parent = (index - 1) / 2;
         Node bottom = heapArray[index];
-
         while (index > 0 &&
             heapArray[parent].getKey() <
             bottom.getKey()) {
-
-            heapArray[index] =
-                    heapArray[parent];
+            heapArray[index] = heapArray[parent];
             index = parent;
             parent = (parent - 1) / 2;
         }
         heapArray[index] = bottom;
     }
-     public Node remove() {
+    public Node remove() {
         Node root = heapArray[0];
         heapArray[0] = 
                heapArray[--currentSize];
         trickleDown(0);
         return root;
     }
+    public boolean change(int index, int newValue) {
+    if (index < 0 || index >= currentSize) {
+        return false; // indeks tidak valid
+    }
+
+    int oldValue = heapArray[index].getKey();
+    heapArray[index].setKey(newValue);
+
+    if (oldValue < newValue) { 
+        // jika nilai baru lebih besar → perbaiki ke atas
+        trickleUp(index);
+    } else { 
+        // jika nilai baru lebih kecil → perbaiki ke bawah
+        trickleDown(index);
+    }
+    return true;
+}
     public void trickleDown(int index) {
         int largerChild;
         Node top = heapArray[index];
