@@ -45,7 +45,6 @@ public class Heap {
     if (index < 0 || index >= currentSize) {
         return false; // indeks tidak valid
     }
-
     int oldValue = heapArray[index].getKey();
     heapArray[index].setKey(newValue);
 

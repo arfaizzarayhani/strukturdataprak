@@ -30,5 +30,15 @@ public class HeapApp {
 
         System.out.println("\nHeap setelah penghapusan root:");
         heap.displayHeap();
+
+        System.out.println("\nHeap sebelum perubahan key:");
+        heap.displayHeap();
+
+        int indexToChange = 5; // contoh ubah elemen di indeks 5
+        int newKey = 115;      // nilai baru
+        System.out.println("\nMengubah key pada indeks " + indexToChange + " menjadi " + newKey);
+        heap.change(indexToChange, newKey);
+        System.out.println("\nHeap setelah perubahan key:");
+        heap.displayHeap();
     }
 }
