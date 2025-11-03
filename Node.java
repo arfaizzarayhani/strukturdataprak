@@ -1,13 +1,16 @@
 package strukturdataprak;
+
 public class Node {
-    private int data;
+    private int key;
+
     public Node(int key) {
-        data = key;
+        this.key = key;
     }
     public int getKey() {
-        return data;
+        return key;
     }
-    public void setKey(int id) {
-        data = id;
+
+    public void setKey(int key) {
+        this.key = key;
     }
 }
