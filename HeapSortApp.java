@@ -3,7 +3,7 @@ package strukturdataprak;
 public class HeapSortApp {
     public static void main(String[] args) {
         int size = 10;
-        Heap heap = new Heap(size);
+        HeapPrak heap = new HeapPrak(size); 
 
         // Memasukkan data random ke heap
         int[] data = {45, 12, 35, 2, 50, 25, 7, 60, 15, 5};
@@ -16,13 +16,13 @@ public class HeapSortApp {
 
         // Menampilkan array awal
         System.out.println("\n\nArray sebelum proses HeapSort:");
-        heap.displayArray();
+        heap.displayHeap();
 
         // Menjalankan heapsort
         heap.heapSort();
 
         // Menampilkan hasil
         System.out.println("\nArray setelah diurutkan:");
-        heap.displayArray();
+        heap.displayHeap();
     }
 }
