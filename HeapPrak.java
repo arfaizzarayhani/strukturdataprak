@@ -21,17 +21,16 @@ public class HeapPrak {
     }
 
     public void displayHeap() {
-        System.out.println("Heap Array: ");
+        System.out.println("Heap Array:");
         for (int i = 0; i < currentSize; i++) {
-            if (heapArray[i] != null) {
+            if (heapArray[i] != null)
                 System.out.print(heapArray[i].getKey() + " ");
-            } else {
+            else
                 System.out.print("-- ");
-            }
         }
         System.out.println();
 
-        // Visualisasi struktur heap
+        // Visualisasi bentuk heap
         int nBlanks = 32;
         int itemsPerRow = 1;
         int column = 0;
@@ -40,13 +39,15 @@ public class HeapPrak {
         System.out.println(dots + dots);
 
         while (j < currentSize) {
-            if (column == 0) {
+            if (column == 0)
                 for (int k = 0; k < nBlanks; k++)
                     System.out.print(' ');
-            }
+
             System.out.print(heapArray[j].getKey());
+
             if (++j == currentSize)
                 break;
+
             if (++column == itemsPerRow) {
                 nBlanks /= 2;
                 itemsPerRow *= 2;
@@ -63,10 +64,11 @@ public class HeapPrak {
     public void trickleDown(int index) {
         int largerChild;
         Node top = heapArray[index];
-        while (index < currentSize / 2) {
+        while (index < currentSize / 2) { // selama masih punya anak
             int leftChild = 2 * index + 1;
             int rightChild = leftChild + 1;
 
+            // pilih anak yang lebih besar
             if (rightChild < currentSize &&
                 heapArray[leftChild].getKey() < heapArray[rightChild].getKey())
                 largerChild = rightChild;
@@ -83,19 +85,23 @@ public class HeapPrak {
     }
 
     public void heapSort() {
-        // Bangun heap (heapify)
+
         for (int i = currentSize / 2 - 1; i >= 0; i--)
             trickleDown(i);
 
-        // Ekstraksi elemen terbesar satu per satu
         int tempSize = currentSize;
-        for (int i = currentSize - 1; i >= 0; i--) {
-            Node biggest = heapArray[0];
-            heapArray[0] = heapArray[i];
-            heapArray[i] = biggest;
+
+        Node[] sorted = new Node[tempSize];
+        for (int i = tempSize - 1; i >= 0; i--) {
+            Node largest = heapArray[0];
+            heapArray[0] = heapArray[currentSize - 1];
             currentSize--;
             trickleDown(0);
+            sorted[i] = largest; // simpan dari belakang → ascending
         }
-        currentSize = tempSize; // kembalikan ukuran agar displayHeap bisa menampilkan semua elemen
+        currentSize = tempSize;
+        for (int i = 0; i < tempSize; i++) {
+            heapArray[i] = sorted[tempSize - 1 - i];
+        }
     }
 }

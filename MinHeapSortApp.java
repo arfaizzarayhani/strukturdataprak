@@ -13,16 +13,13 @@ public class MinHeapSortApp {
             heap.incrementSize();
             System.out.print(data[i] + " ");
         }
-
-        // Menampilkan array awal
         System.out.println("\n\nArray sebelum proses Min-HeapSort:");
-        heap.displayArray();
+        heap.displayHeap();
 
-        // Menjalankan heapsort
+        // Menjalankan Min-HeapSort
         heap.heapSort();
 
-        // Menampilkan hasil
-        System.out.println("\nArray setelah diurutkan (dengan Min-Heap):");
-        heap.displayArray();
+        System.out.println("\nArray setelah diurutkan (ascending):");
+        heap.displayHeap();
     }
 }
