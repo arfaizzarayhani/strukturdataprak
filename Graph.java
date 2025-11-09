@@ -6,6 +6,7 @@ public class Graph {
     private final int[][] adjMat;
     private int nVerts;
     private Stack theStack;
+    private Queue theQueue = new Queue(MAX_VERTS);
     public Graph() {
         vertexList = new Vertex[MAX_VERTS];
         adjMat = new int[MAX_VERTS][MAX_VERTS];
@@ -70,6 +71,44 @@ public class Graph {
         for (int i = 0; i < nVerts; i++) {
             vertexList[i].wasVisited = false;
         }
+    }
+    public void bfs() {
+        System.out.println("Visit by using" + " BFS algorithm: ");
+        vertexList[0].wasVisited = true;
+        displayVertex(0);
+        theQueue.insert(0);
+        int v2;
+        while (!theQueue.isEmpty()) {
+            int v1 = theQueue.remove();
+            while ((v2 = getAdjUnvisitedVertex(v1)) != -1) {
+                vertexList[v2].wasVisited = true;
+                displayVertex(v2);
+                theQueue.insert(v2);
+            }
+        }
+        System.out.println("");
+        resetFlags();
+    } 
+    public void mst() {
+    System.out.println("Minimum spanning" + " tree: ");
+    vertexList[0].wasVisited = true;
+    theStack.push(0);
+    while (!theStack.isEmpty()) {
+        int currentVertex = theStack.peek();
+        int v = getAdjUnvisitedVertex(currentVertex);
+        if (v == -1) {
+            theStack.pop();
+        } else {
+            vertexList[v].wasVisited = true;
+            theStack.push(v);
+     
+            displayVertex(currentVertex);
+            System.out.print(" -- ");
+            displayVertex(v);
+            System.out.println("");
+       }
+    }
+    resetFlags();
     }
     public void display() {
         System.out.println("Adjacency:");

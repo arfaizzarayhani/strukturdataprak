@@ -1,50 +1,38 @@
 package strukturdataprak;
 
-class Queue {
-    private int maxSize;
-    private String[] queueArray;
+public class Queue {
+    private final int MAX_SIZE;
+    private int[] queArray;
     private int front;
     private int rear;
     private int nItems;
 
-    public Queue(int size) {
-        maxSize = size;
-        queueArray = new String[maxSize];
+    public Queue(int s) {
+        MAX_SIZE = s;
+        queArray = new int[MAX_SIZE];
         front = 0;
         rear = -1;
         nItems = 0;
     }
-    public void enqueue(String item) {
-        if (isFull()) {
-            System.out.println("Maaf " + item + ", antrian masih penuh");
-        } else {
-            rear = (rear + 1) % maxSize;
-            queueArray[rear] = item;
-            nItems++;
-            System.out.println(item + " masuk antrian");
+
+    public void insert(int j) { // Menambahkan item ke belakang (rear)
+        if (rear == MAX_SIZE - 1) {
+            rear = -1; // Circular queue wrap-around (opsional, disederhanakan)
         }
-    } 
-    public String dequeue() {
-        if (isEmpty()) {
-            return null;
-        } else {
-            String temp = queueArray[front];
-            queueArray[front] = "Kosong"; 
-            front = (front + 1) % maxSize;
-            nItems--;
-            return temp;
-        }
+        queArray[++rear] = j;
+        nItems++;
     }
+
+    public int remove() { // Menghapus item dari depan (front)
+        int temp = queArray[front++];
+        if (front == MAX_SIZE) {
+            front = 0; // Circular queue wrap-around
+        }
+        nItems--;
+        return temp;
+    }
+
     public boolean isEmpty() {
         return (nItems == 0);
-    }
-    public boolean isFull() {
-        return (nItems == maxSize);
-    }
-    public void displayQueue() {
-        for (int i = 0; i < maxSize; i++) {
-            System.out.print(queueArray[i] + ",");
-        }
-        System.out.println();
     }
 }

@@ -15,6 +15,8 @@ public class GraphApp {
         theGraph.addEdge(3, 4); // DE
         theGraph.display();
         theGraph.dfs(); // depth-first search
+        theGraph.bfs(); // breadth-first search
+        theGraph.mst(); // minimum spanning tree
     }
 
 }
