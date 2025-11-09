@@ -1,11 +1,11 @@
 package strukturdataprak;
-public class Vertex {
 
+public class Vertex {
     public char label;
     public boolean wasVisited;
 
-    public Vertex(char label) {
-        this.label = label;
+    public Vertex(char lab) {
+        label = lab;
         wasVisited = false;
     }
-} 
+}

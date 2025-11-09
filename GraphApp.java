@@ -14,6 +14,7 @@ public class GraphApp {
         theGraph.addEdge(0, 3); // AD
         theGraph.addEdge(3, 4); // DE
         theGraph.display();
+        theGraph.dfs(); // depth-first search
     }
 
 }
