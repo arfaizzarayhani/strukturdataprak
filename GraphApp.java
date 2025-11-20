@@ -9,7 +9,7 @@ public class GraphApp {
         theGraph.addVertex('B');
         theGraph.addVertex('C');
         theGraph.addVertex('D');
-        theGraph.addVertex('E');
+        theGraph.addVertex('E'); 
 
         // Tambah edge (directed)
         theGraph.addEdge(0, 1); // A→B
@@ -19,7 +19,6 @@ public class GraphApp {
         theGraph.addEdge(3, 4); // D→E
 
         // Tampilkan hasil
-        theGraph.displayMatrix();
         theGraph.dfs();
         theGraph.bfs();
         theGraph.connectivityTable();

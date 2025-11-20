@@ -9,8 +9,7 @@ public class DirectGraphApp {
         theGraph.addVertex('C'); // 2
         theGraph.addVertex('D'); // 3
         theGraph.addVertex('E'); // 4
-
-        // Tambahkan edge sesuai gambar (arah panah dari kiri ke kanan)
+        
         theGraph.addEdge(1, 0); // B -> A
         theGraph.addEdge(0, 2); // A -> C
         theGraph.addEdge(1, 4); // B -> E
@@ -20,6 +19,6 @@ public class DirectGraphApp {
         // Tampilkan hasil
         theGraph.displayEdges();
         theGraph.connectivityTable();
-       
+        theGraph.topologicalSort();
     }
 }
